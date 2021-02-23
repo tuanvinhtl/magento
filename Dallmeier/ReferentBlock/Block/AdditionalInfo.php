@@ -2,24 +2,33 @@
 
 namespace Dallmeier\ReferentBlock\Block;
 
+use Dallmeier\CustomerAttribute\Model\TenantFactory;
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Model\Session;
+use Magento\Framework\App\Http\Context;
 use Magento\Framework\View\Element\Template;
 
 class AdditionalInfo extends Template
 {
     protected $_tenantFactory;
     protected $customerSession;
+    protected $httpContext;
     protected $customerRepositoryInterface;
+
     /**
-     * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Magento\Framework\App\Http\Context $httpContext
+     * @param Template\Context $context
+     * @param Context $httpContext
+     * @param Session $customerSession
+     * @param CustomerRepositoryInterface $customerRepositoryInterface
+     * @param TenantFactory $tenantFactory
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Framework\App\Http\Context $httpContext,
-        \Magento\Customer\Model\Session $customerSession,
-        \Magento\Customer\Api\CustomerRepositoryInterface $customerRepositoryInterface,
-        \Dallmeier\CustomerAttribute\Model\TenantFactory $tenantFactory,
+        Template\Context $context,
+        Context $httpContext,
+        Session $customerSession,
+        CustomerRepositoryInterface $customerRepositoryInterface,
+        TenantFactory $tenantFactory,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -35,15 +44,13 @@ class AdditionalInfo extends Template
         $customer = $this->customerRepositoryInterface->getById($customerId);
         $customerAttributeData = $customer->__toArray();
 
-        // $customerAttributeData['custom_attributes']['tenant_name']['value'];
-
         $tenant = $this->_tenantFactory->create();
 
         $tenantRequested =$customerAttributeData['custom_attributes']['tenant_name']['value'];
 
-        $resultColections =  $tenant->getCollection()->getItemByColumnValue('tenant_name', $tenantRequested);
+        $resultCollections =  $tenant->getCollection()->getItemByColumnValue('tenant_name', $tenantRequested);
 
-        if ($resultColections === null) {
+        if ($resultCollections === null) {
             $data = [
                 'tenant_name'  => $tenantRequested,
                 'customer_id'  => $customerId,
