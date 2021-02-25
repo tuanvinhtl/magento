@@ -12,7 +12,7 @@
                 comment="Tenant Id"/>
         <column xsi:type="int" name="customer_id" unsigned="false" nullable="true" identity="false"
                 comment="Customer ID"/>
-        <column xsi:type="varchar" name="tenant_name" unsigned="false" nullable="false" identity="false"
+        <column xsi:type="varchar" name="tenant_name" nullable="false"
                 comment="Tenant name"/>
         <column xsi:type="timestamp" name="last_login_at" on_update="false" nullable="true" comment="Last Modifiled Time"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
