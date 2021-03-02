@@ -52,4 +52,5 @@ class GoldTest extends TestCase
 
         $this->assertSame($result, $this->block->customerLoggedIn($isLoggedIn));
     }
+
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Dallmeier\VirtualTypeExample\Api\WarehouseManagementInterface"
+                type="Dallmeier\VirtualTypeExample\Model\WarehouseManagement"/>
+    <preference for="Dallmeier\VirtualTypeExample\Api\WarehouseRepositoryInterface"
+                type="Dallmeier\VirtualTypeExample\Model\WarehouseRepository"/>
+
+
+    <type name="Dallmeier\VirtualTypeExample\ViewModel\Example">
+        <arguments>
+            <argument name="warehouseRepository" xsi:type="object">WarehouseRepositoryExtended</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="WarehouseRepositoryExtended" type="Dallmeier\VirtualTypeExample\Model\WarehouseRepository">
+        <arguments>
+            <argument name="warehouseManagement" xsi:type="object">Dallmeier\VirtualTypeExample\Model\WarehouseManagementExtended</argument>
+        </arguments>
+    </virtualType>
+</config>

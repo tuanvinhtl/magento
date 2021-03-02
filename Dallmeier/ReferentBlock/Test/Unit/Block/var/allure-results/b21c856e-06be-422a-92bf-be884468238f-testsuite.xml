@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alr:test-suite xmlns:alr="urn:model.allure.qatools.yandex.ru" start="1614674164910" stop="1614674164943" version="1.4.0">
+  <name>Dallmeier\ReferentBlock\Test\Unit\Block\GoldTest</name>
+  <test-cases>
+    <test-case start="1614674164911" stop="1614674164936" status="passed">
+      <name>testCustomerLoggedIn with data set #0</name>
+    </test-case>
+    <test-case start="1614674164936" stop="1614674164937" status="passed">
+      <name>testCustomerLoggedIn with data set #1</name>
+    </test-case>
+    <test-case start="1614674164937" stop="1614674164943" status="broken">
+      <name>testInstence</name>
+      <failure>
+        <message>Warning: Use of undefined constant Gold - assumed 'Gold' (this will throw an Error in a future version of PHP) in /home/pc/dev/project-community-edition/app/code/Dallmeier/ReferentBlock/Test/Unit/Block/GoldTest.php:58.</message>
+        <stack-trace>#0 /home/pc/dev/project-community-edition/app/code/Dallmeier/ReferentBlock/Test/Unit/Block/GoldTest.php(58): {closure}()
+#1 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/Framework/TestCase.php(1414): Dallmeier\ReferentBlock\Test\Unit\Block\GoldTest-&gt;testInstence()
+#2 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/Framework/TestCase.php(1031): PHPUnit\Framework\TestCase-&gt;runTest()
+#3 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/Framework/TestResult.php(688): PHPUnit\Framework\TestCase-&gt;runBare()
+#4 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/Framework/TestCase.php(772): PHPUnit\Framework\TestResult-&gt;run()
+#5 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/Framework/TestSuite.php(639): PHPUnit\Framework\TestCase-&gt;run()
+#6 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/Framework/TestSuite.php(639): PHPUnit\Framework\TestSuite-&gt;run()
+#7 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(653): PHPUnit\Framework\TestSuite-&gt;run()
+#8 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/TextUI/Command.php(108): PHPUnit\TextUI\TestRunner-&gt;run()
+#9 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/src/TextUI/Command.php(68): PHPUnit\TextUI\Command-&gt;run()
+#10 /home/pc/dev/project-community-edition/vendor/phpunit/phpunit/phpunit(61): PHPUnit\TextUI\Command::main()
+#11 {main}</stack-trace>
+      </failure>
+    </test-case>
+  </test-cases>
+</alr:test-suite>
